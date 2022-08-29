@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <h1>Select a guess method</h1>
+
+    <select
+      name="guess-method"
+      id="guessMetod"
+      onchange="handleGuessMethodSelection(event)"
+    >
+      <option value="">--Please choose an option--</option>
+      <option value="lines">Lines</option>
+    </select>
+    <h1>Select a country</h1>
+    <input
+      type="text"
+      id="countryInputA"
+      name="country-a"
+      oninput="handleCountryASelection(event)"
+    />
+    <input
+      type="text"
+      id="countryInputB"
+      name="country-b"
+      oninput="handleCountryBSelection(event)"
+    />
+    <div class="country-a-holder country">
+      <div class="name"></div>
+      <div class="value"></div>
+    </div>
+    <div class="country-b-holder country">
+      <div class="name"></div>
+      <div class="value"></div>
+    </div>
+  </body>
+</html>
