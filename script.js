@@ -16,7 +16,7 @@ document
   .setAttribute("list", "countriesDatalist");
 
 const fetchLines = async () => {
-  const fetchedData = await (await fetch("./pages/lines.html")).text();
+  const fetchedData = await (await fetch("./data/lines.html")).text();
 
   const tempElement = document.createElement("html");
   tempElement.innerHTML = fetchedData;
@@ -45,7 +45,7 @@ const fetchLines = async () => {
 fetchLines();
 
 const fetchBollards = async () => {
-  const fetchedData = await (await fetch("./pages/bollards.html")).text();
+  const fetchedData = await (await fetch("./data/bollards.html")).text();
 
   const tempElement = document.createElement("html");
   tempElement.innerHTML = fetchedData;

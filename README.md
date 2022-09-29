@@ -1,6 +1,15 @@
 # GeoCompare
 
-First run these curl commands to retrieve the pages you want to use
+This project makes it easy to compare 2 different countries when you keep mixing up the 2 while playing Geoguessr.
+
+This project is in very very early development and uses Geohints as a data source (retrieved on the 29th of September 2022).
+
+To see it in action go to https://rerbun.github.io/GeoCompare/
+
+## How update the used data
+
+1. Clone this repository
+2. Run below Curl commands to retrieve the pages you want to use
 
 ```bash
 curl -o pages/houses.html https://geohints.com/Houses.html
