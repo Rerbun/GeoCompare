@@ -52,7 +52,9 @@ const fetchBollards = async () => {
 
   Array.from(tempElement.querySelectorAll(".country")).forEach(
     (countryElement) => {
-      const country = countryElement.textContent.replace(/[^0-9a-z ]/gi, "");
+      const country = countryElement.textContent
+        .replace(/[^0-9a-z ]/gi, "")
+        .trim();
       bollardsMap.set(
         country,
         generateImageUrl(countryElement.previousElementSibling.src)
