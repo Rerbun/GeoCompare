@@ -65,7 +65,10 @@ const fetchBollards = async () => {
 fetchBollards();
 
 const generateImageUrl = (imageSrc) => {
-  return "https://geohints.com" + new URL(imageSrc).pathname;
+  return (
+    "https://geohints.com" +
+    new URL(imageSrc).pathname.replace("GeoCompare/", "")
+  );
 };
 
 const generateSelectOption = (country) => {
