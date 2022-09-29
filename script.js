@@ -1,6 +1,9 @@
 const mapMap = new Map();
 const linesMap = new Map();
+const bollardsMap = new Map();
 mapMap.set("lines", linesMap);
+mapMap.set("bollards", bollardsMap);
+const countries = new Set();
 
 const countriesDatalist = document.createElement("datalist");
 countriesDatalist.id = "countriesDatalist";
@@ -13,9 +16,7 @@ document
   .setAttribute("list", "countriesDatalist");
 
 const fetchLines = async () => {
-  const fetchedData = await (
-    await fetch("http://localhost:8282/https://geohints.com/Lines.html")
-  ).text();
+  const fetchedData = await (await fetch("./pages/lines.html")).text();
 
   const tempElement = document.createElement("html");
   tempElement.innerHTML = fetchedData;
@@ -36,14 +37,45 @@ const fetchLines = async () => {
       }
       const country = splitText[0].trim();
       linesMap.set(country, splitText[1].trim());
-      const option = document.createElement("option");
-      option.value = country;
-      countriesDatalist.appendChild(option);
+      generateSelectOption(country);
     }
   }
 };
 
 fetchLines();
+
+const fetchBollards = async () => {
+  const fetchedData = await (await fetch("./pages/bollards.html")).text();
+
+  const tempElement = document.createElement("html");
+  tempElement.innerHTML = fetchedData;
+
+  Array.from(tempElement.querySelectorAll(".country")).forEach(
+    (countryElement) => {
+      const country = countryElement.textContent.replace(/[^0-9a-z ]/gi, "");
+      bollardsMap.set(
+        country,
+        generateImageUrl(countryElement.previousElementSibling.src)
+      );
+      generateSelectOption(country);
+    }
+  );
+};
+
+fetchBollards();
+
+const generateImageUrl = (imageSrc) => {
+  return "https://geohints.com" + new URL(imageSrc).pathname;
+};
+
+const generateSelectOption = (country) => {
+  if (!countries.has(country)) {
+    const option = document.createElement("option");
+    option.value = country;
+    countriesDatalist.appendChild(option);
+    countries.add(country);
+  }
+};
 
 let selectedGuessMethod;
 const handleGuessMethodSelection = (event) => {
@@ -67,8 +99,13 @@ const handleCountryBSelection = (event) => {
 };
 
 const handleCountrySelection = (field, country) => {
-  document.querySelector(`.country-${field}-holder > .name`).textContent =
-    country;
+  const value = mapMap.get(selectedGuessMethod)?.get(country);
+  const valueIsUrl = value.includes("http");
+  const imageElement = document.querySelector(
+    `.country-${field}-holder > .value-image`
+  );
+  imageElement.src = valueIsUrl ? value : "";
+  imageElement.classList.toggle("hidden", !valueIsUrl);
   document.querySelector(`.country-${field}-holder > .value`).textContent =
-    mapMap.get(selectedGuessMethod)?.get(country);
+    valueIsUrl ? "" : value;
 };

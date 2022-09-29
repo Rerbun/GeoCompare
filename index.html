@@ -1,8 +1,40 @@
 <html>
   <head>
     <script src="script.js" defer></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <style>
+      .country-holders,
+      .country-inputs {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .country > * {
+        width: 100%;
+      }
+
+      .vertical-divider {
+        height: auto;
+        background-color: grey;
+        width: 2px;
+        margin: 0px 8px;
+      }
+
+      button, img {
+        margin-top: 8px;
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
-  <body>
+  <body class="container col-md-6">
     <h1>Select a guess method</h1>
 
     <select
@@ -12,27 +44,33 @@
     >
       <option value="">--Please choose an option--</option>
       <option value="lines">Lines</option>
+      <option value="bollards">Bollards</option>
     </select>
     <h1>Select a country</h1>
-    <input
-      type="text"
-      id="countryInputA"
-      name="country-a"
-      oninput="handleCountryASelection(event)"
-    />
-    <input
-      type="text"
-      id="countryInputB"
-      name="country-b"
-      oninput="handleCountryBSelection(event)"
-    />
-    <div class="country-a-holder country">
-      <div class="name"></div>
-      <div class="value"></div>
-    </div>
-    <div class="country-b-holder country">
-      <div class="name"></div>
-      <div class="value"></div>
+    <div class="country-holders">
+      <div class="country-a-holder country">
+        <input
+          type="text"
+          id="countryInputA"
+          name="country-a"
+          oninput="handleCountryASelection(event)"
+          onfocus="this.value=''"
+        />
+        <div class="value"></div>
+        <img class="value-image"></img>
+      </div>
+      <div class="vertical-divider"></div>
+      <div class="country-b-holder country">
+        <input
+          type="text"
+          id="countryInputB"
+          name="country-b"
+          oninput="handleCountryBSelection(event)"
+          onfocus="this.value=''"
+        />
+        <div class="value"></div>
+        <img class="value-image"></img>
+      </div>
     </div>
   </body>
 </html>

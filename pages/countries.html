@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Countries</title>
+<link rel="shortcut icon" type="image/png" href="Sources/planet.png" />
+<link href="Bollards.css" rel="stylesheet" type="text/css" />
+</head>
+<body style="padding: 15px">
+While you can find unoffical street view coverage or at least photosphers from every single country in the world not every single country has offical coverage.
+<br>
+Countries with offical coverage are the following:
+<br>
+<br>
+<img src="Sources/Countries/countries.jpg" class="noZoomGen" onclick="onClick(this)" /><br>
+<br>
+The countries marked in red are countries you will see all the time in Geoguessr and it is a safe bet to guess in one of them.<br>
+The countries marked in pink are quite rare and mostly trekker locations. I would suggest not guessing them unless there is a good hint it might be one of those countries.<br>
+The countries marked in blue you will almost never see unless you are playing a specific map that includes them. Don't guess these countries unless there is a good hint it might be one of those countries.<br>
+The countries marked in gray don't have official coverage and they should not be guessed unless the map includes unofficial coverage.
+<br>
+<h3>Coming soon</h3>
+We will soon beging to compile and prepare pages which will showcase the information and meta about each country separately. They will be accessible from here as they get published.
+<br>
+<div style="height: 270px; width: 105px; float: left; margin: 15px">
+<h3>Africa:</h3>
+Botswana<br>
+Eswatini<br>
+Ghana<br>
+Kenya<br>
+Lesotho<br>
+Madagascar<br>
+Nigeria<br>
+Senegal<br>
+South Africa<br>
+Tunisia<br>
+Uganda
+</div>
+<div style="height: 480px; width: 180px; float: left; margin: 15px">
+<h3>Asia:</h3>
+Bangladesh<br>
+Bhutan<br>
+Cambodia<br>
+Christmas Island<br>
+India<br>
+Indonesia<br>
+Israel<br>
+Japan<br>
+Jordan<br>
+Kyrgyzstan<br>
+Laos<br>
+Malaysia<br>
+Mongolia<br>
+Philippines<br>
+Russia<br>
+Singapore<br>
+South Korea<br>
+Sri Lanka<br>
+Taiwan<br>
+Thailand<br>
+United Arab Emirates<br>
+Vietnam
+</div>
+<div style="height: 880px; width: 150px; float: left; margin: 15px">
+<h3>Europe:</h3>
+Albania<br>
+Andorra<br>
+Austria<br>
+Belgium<br>
+Bulgaria<br>
+Croatia<br>
+Czech Republic<br>
+Denmark<br>
+Estonia<br>
+Faroe Islands<br>
+Finland<br>
+France<br>
+Germany<br>
+Gibraltar<br>
+Greece<br>
+Hungary<br>
+Iceland<br>
+Ireland<br>
+Isle of Man<br>
+Italy<br>
+Jersey<br>
+Latvia<br>
+Lithuania<br>
+Luxembourg<br>
+Malta<br>
+Monaco<br>
+Montenegro<br>
+Netherlands<br>
+North Macedonia<br>
+Norway<br>
+Poland<br>
+Portugal<br>
+Romania<br>
+San Marino<br>
+Serbia<br>
+Slovakia<br>
+Slovenia<br>
+Spain<br>
+Sweden<br>
+Switzerland<br>
+Turkey<br>
+Ukraine<br>
+United Kingdom
+</div>
+<div style="height: 280px; width: 150px; float: left; margin: 15px">
+<h3>North America:</h3>
+Canada<br>
+Cura&ccedil;ao<br>
+Dominican Republic<br>
+Greenland<br>
+Guatemala<br>
+Mexico<br>
+Puerto Rico<br>
+<a href="Countries/us/main.html">United States</a> <br>
+US Virgin Islands<br>
+</div>
+<div style="height: 180px; width: 160px; float: left; margin: 15px">
+<h3>Oceania:</h3>
+American Samoa<br>
+Australia<br>
+Guam<br>
+New Zealand<br>
+Northern Mariana Islands<br>
+</div>
+<div style="height: 240px; width: 100px; float: left; margin: 15px">
+<h3>South America:</h3>
+Argentina<br>
+Bolivia<br>
+Brazil<br>
+Chile<br>
+Colombia<br>
+Ecuador<br>
+Peru<br>
+Uruguay<br>
+</div>
+<div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+<span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+<div class="w3-modal-content">
+<img id="img01" style="width:100%">
+</div>
+</div>
+<script>
+		function onClick(element) {
+		  document.getElementById("img01").src = element.src;
+		  document.getElementById("modal01").style.display = "block";
+		}
+	</script>
+</body>
+</html>
